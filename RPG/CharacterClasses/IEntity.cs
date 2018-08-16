@@ -19,6 +19,5 @@ namespace RPG.CharacterClasses
         EntityGender Gender { get; set; }
         EntityClass CharacterClass { get; set; }
 
-        void LevelUp(int points);
     }
 }

@@ -69,6 +69,8 @@
     <Compile Include="FormCharacterCreator.Designer.cs">
       <DependentUpon>FormCharacterCreator.cs</DependentUpon>
     </Compile>
+    <Compile Include="NPC\NPCBase.cs" />
+    <Compile Include="NPC\NPCZombie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCharacterCreator.resx">
