@@ -53,8 +53,10 @@ namespace RPG
 
         private void Btn_PlayerAttack_Click(object sender, EventArgs e)
         {
-            // Temporary, make it a method
-            // Add string, showing enemy attacks + damage number.
+            // Temporary Placeholder
+            // - Make NPC.Attack method generate the numbers within its derived classes.
+            // - Add Method here to refresh the player/enemy HP after each click of btn Attack.
+            // - Add astring, showing enemy attacks + damage number in textbox.
             int damage = _npc.Attack(1, 3);
             _player.Health -= damage;
             Lbl_ShowHealth.Text = _player.Health.ToString();
