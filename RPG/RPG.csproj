@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="CharacterClasses\Berserker.cs" />
     <Compile Include="CharacterClasses\IEntity.cs" />
-    <Compile Include="CharacterClasses\NPCBase.cs" />
     <Compile Include="CharacterClasses\PlayerBase.cs" />
     <Compile Include="CharacterClasses\Shaman.cs" />
     <Compile Include="Data\FileManager.cs" />
@@ -69,8 +68,8 @@
     <Compile Include="FormCharacterCreator.Designer.cs">
       <DependentUpon>FormCharacterCreator.cs</DependentUpon>
     </Compile>
-    <Compile Include="NPC\NPCBase.cs" />
-    <Compile Include="NPC\NPCZombie.cs" />
+    <Compile Include="CharacterClasses\NPC\NPCBase.cs" />
+    <Compile Include="CharacterClasses\NPC\NPCZombie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCharacterCreator.resx">

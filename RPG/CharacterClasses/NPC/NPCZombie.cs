@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPG.NPC
+namespace RPG.CharacterClasses
 {
-    class NPCZombie : NPCBase
+    public class NPCZombie : NPCBase
     {
         // Fields
         private int _defaultStrength = 1;
@@ -24,6 +24,8 @@ namespace RPG.NPC
             Wisdom = _defaultWisdom;
             Health = _defaultHealth;
         }
+
+        public NPCZombie() { }
 
 
     }

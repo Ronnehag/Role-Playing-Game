@@ -14,6 +14,9 @@ namespace RPG
 {
     public partial class Frm_GameMenu : Form
     {
+        private static PlayerBase _player = new PlayerBase();
+        private static NPCBase _npc = new NPCBase();
+
         public Frm_GameMenu()
         {
             InitializeComponent();
@@ -21,20 +24,40 @@ namespace RPG
 
         private void Frm_GameMenu_Load(object sender, EventArgs e)
         {
-            PlayerBase player = new PlayerBase();
-            player = FileManager.LoadGame();
+            _player = FileManager.LoadGame();
+            Lbl_ShowName.Text = _player.Name;
+            Lbl_ShowGender.Text = _player.Gender.ToString();
+            Lbl_ShowClass.Text = _player.CharacterClass.ToString();
+            Lbl_ShowStrength.Text = _player.Strength.ToString();
+            Lbl_ShowDexterity.Text = _player.Dexterity.ToString();
+            Lbl_ShowWisdom.Text = _player.Wisdom.ToString();
+            Lbl_ShowHealth.Text = _player.Health.ToString();
 
-            
-            Lbl_ShowName.Text = player.Name;
-            Lbl_ShowGender.Text = player.Gender.ToString();
-            Lbl_ShowClass.Text = player.CharacterClass.ToString();
-            Lbl_ShowStrength.Text = player.Strength.ToString();
-            Lbl_ShowDexterity.Text = player.Dexterity.ToString();
-            Lbl_ShowWisdom.Text = player.Wisdom.ToString();
-
-
-            
         }
 
+        private void Btn_NewEnemy_Click(object sender, EventArgs e)
+        {
+            ShowNewEnemy();
+
+        }
+
+        public void ShowNewEnemy()
+        {
+            _npc = _npc.GetNewEnemy();
+
+            Tb_Dungeon.AppendText("Eeek a " +
+                _npc.Name + "!" + Environment.NewLine + Environment.NewLine +
+                "Enemy: " + _npc.Name + Environment.NewLine + 
+                "Current health: " + _npc.Health);
+        }
+
+        private void Btn_PlayerAttack_Click(object sender, EventArgs e)
+        {
+            // Temporary, make it a method
+            // Add string, showing enemy attacks + damage number.
+            int damage = _npc.Attack(1, 3);
+            _player.Health -= damage;
+            Lbl_ShowHealth.Text = _player.Health.ToString();
+        }
     }
 }

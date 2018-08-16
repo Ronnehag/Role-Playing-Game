@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPG.NPC
+namespace RPG.CharacterClasses
 {
-    class NPCBase : IEntity
+    public class NPCBase : IEntity
     {
-
         #region Properties
         public string Name { get; set; }
         public int Strength { get; set; }
@@ -31,19 +30,17 @@ namespace RPG.NPC
 
         #region General Methods
 
-        public static NPCBase GetNewEnemy()
+        public NPCBase GetNewEnemy()
         {
-            NPCBase[] npcs = new NPCBase[1] // Add NPCs here
-            {
-                new NPCZombie("Zombie")
-            };
+         NPCBase[] _npcs = new NPCBase[]
+        { new NPCZombie("Zombie") };
 
-            Random rand = new Random();
-            int next = rand.Next(0, npcs.Length);
+        Random rand = new Random();
+            int next = rand.Next(0, _npcs.Length);
 
-            if (npcs != null)
+            if (_npcs != null)
             {
-                return npcs[next];
+                return _npcs[next];
             }
             return null;
         }
@@ -51,7 +48,7 @@ namespace RPG.NPC
         #endregion
 
 
-        #region Combat
+        #region Combat Methods
         public bool IsDead() => Health is 0;
 
         public int Attack(int minDamage, int maxDamage)

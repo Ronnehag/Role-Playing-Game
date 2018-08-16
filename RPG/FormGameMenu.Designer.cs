@@ -46,7 +46,10 @@
             this.Btn_NewEnemy = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Btn_Inventory = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Tb_Dungeon = new System.Windows.Forms.TextBox();
+            this.Lbl_ShowHealth = new System.Windows.Forms.Label();
+            this.Lbl_Health = new System.Windows.Forms.Label();
+            this.Btn_PlayerAttack = new System.Windows.Forms.Button();
             this.Gbox_CharStats.SuspendLayout();
             this.Gbox_Dungeon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -188,23 +191,27 @@
             // 
             // Gbox_Dungeon
             // 
-            this.Gbox_Dungeon.Controls.Add(this.textBox1);
+            this.Gbox_Dungeon.Controls.Add(this.Btn_PlayerAttack);
+            this.Gbox_Dungeon.Controls.Add(this.Lbl_Health);
+            this.Gbox_Dungeon.Controls.Add(this.Lbl_ShowHealth);
+            this.Gbox_Dungeon.Controls.Add(this.Tb_Dungeon);
             this.Gbox_Dungeon.Controls.Add(this.Btn_NewEnemy);
             this.Gbox_Dungeon.Location = new System.Drawing.Point(489, 12);
             this.Gbox_Dungeon.Name = "Gbox_Dungeon";
-            this.Gbox_Dungeon.Size = new System.Drawing.Size(296, 476);
+            this.Gbox_Dungeon.Size = new System.Drawing.Size(296, 407);
             this.Gbox_Dungeon.TabIndex = 5;
             this.Gbox_Dungeon.TabStop = false;
             this.Gbox_Dungeon.Text = "Dungeon";
             // 
             // Btn_NewEnemy
             // 
-            this.Btn_NewEnemy.Location = new System.Drawing.Point(6, 387);
+            this.Btn_NewEnemy.Location = new System.Drawing.Point(6, 274);
             this.Btn_NewEnemy.Name = "Btn_NewEnemy";
             this.Btn_NewEnemy.Size = new System.Drawing.Size(284, 39);
             this.Btn_NewEnemy.TabIndex = 6;
             this.Btn_NewEnemy.Text = "Enter Dungeon";
             this.Btn_NewEnemy.UseVisualStyleBackColor = true;
+            this.Btn_NewEnemy.Click += new System.EventHandler(this.Btn_NewEnemy_Click);
             // 
             // pictureBox1
             // 
@@ -227,13 +234,43 @@
             this.Btn_Inventory.Text = "Inventory";
             this.Btn_Inventory.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // Tb_Dungeon
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 26);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(283, 242);
-            this.textBox1.TabIndex = 7;
+            this.Tb_Dungeon.Location = new System.Drawing.Point(7, 26);
+            this.Tb_Dungeon.Multiline = true;
+            this.Tb_Dungeon.Name = "Tb_Dungeon";
+            this.Tb_Dungeon.Size = new System.Drawing.Size(283, 242);
+            this.Tb_Dungeon.TabIndex = 7;
+            // 
+            // Lbl_ShowHealth
+            // 
+            this.Lbl_ShowHealth.AutoSize = true;
+            this.Lbl_ShowHealth.Font = new System.Drawing.Font("AR DARLING", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_ShowHealth.Location = new System.Drawing.Point(45, 316);
+            this.Lbl_ShowHealth.Name = "Lbl_ShowHealth";
+            this.Lbl_ShowHealth.Size = new System.Drawing.Size(111, 23);
+            this.Lbl_ShowHealth.TabIndex = 8;
+            this.Lbl_ShowHealth.Text = "PlayerHealth";
+            // 
+            // Lbl_Health
+            // 
+            this.Lbl_Health.AutoSize = true;
+            this.Lbl_Health.Font = new System.Drawing.Font("AR DARLING", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Health.Location = new System.Drawing.Point(7, 316);
+            this.Lbl_Health.Name = "Lbl_Health";
+            this.Lbl_Health.Size = new System.Drawing.Size(32, 23);
+            this.Lbl_Health.TabIndex = 9;
+            this.Lbl_Health.Text = "HP";
+            // 
+            // Btn_PlayerAttack
+            // 
+            this.Btn_PlayerAttack.Location = new System.Drawing.Point(11, 362);
+            this.Btn_PlayerAttack.Name = "Btn_PlayerAttack";
+            this.Btn_PlayerAttack.Size = new System.Drawing.Size(117, 39);
+            this.Btn_PlayerAttack.TabIndex = 10;
+            this.Btn_PlayerAttack.Text = "Attack";
+            this.Btn_PlayerAttack.UseVisualStyleBackColor = true;
+            this.Btn_PlayerAttack.Click += new System.EventHandler(this.Btn_PlayerAttack_Click);
             // 
             // Frm_GameMenu
             // 
@@ -276,6 +313,9 @@
         private System.Windows.Forms.Button Btn_NewEnemy;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Btn_Inventory;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Tb_Dungeon;
+        private System.Windows.Forms.Label Lbl_ShowHealth;
+        private System.Windows.Forms.Label Lbl_Health;
+        private System.Windows.Forms.Button Btn_PlayerAttack;
     }
 }
