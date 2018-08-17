@@ -41,26 +41,23 @@ namespace RPG.Data
 
         public static PlayerBase LoadGame()
         {
-            if (!File.Exists(PlayerSettingsFile))
+            if (File.Exists(PlayerSettingsFile))
             {
-               return new PlayerBase("No Char Found", EntityGender.Unknown);
-            }
-
-            using (Stream stream = File.OpenRead(PlayerSettingsFile))
-            {
-                XmlReader reader = new XmlTextReader(stream);
-                foreach (var type in PlayerBase.Types)
+                using (Stream stream = File.OpenRead(PlayerSettingsFile))
                 {
-                    var serializer = new XmlSerializer(type);
-
-                    if (serializer.CanDeserialize(reader))
+                    XmlReader reader = new XmlTextReader(stream);
+                    foreach (var type in PlayerBase.Types)
                     {
-                        return (PlayerBase)serializer.Deserialize(reader);
+                        var serializer = new XmlSerializer(type);
+
+                        if (serializer.CanDeserialize(reader))
+                        {
+                            return (PlayerBase)serializer.Deserialize(reader);
+                        }
                     }
                 }
-
             }
-            return new PlayerBase();
+            return null;
 
         }
 

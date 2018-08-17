@@ -15,7 +15,15 @@ namespace RPG.CharacterClasses
         private int _defaultHealth = 8;
         private string _name = "Zombie";
 
+        private int _zombieExp = 25;
+
+        private int _zombieMinDmg = 1;
+        private int _zombieMaxDmg = 4;
+
+
         // Constructor
+        public NPCZombie() { }
+
         public NPCZombie(string name) : base (name)
         {
             name = _name;
@@ -23,9 +31,13 @@ namespace RPG.CharacterClasses
             Dexterity = _defaultDexterity;
             Wisdom = _defaultWisdom;
             Health = _defaultHealth;
-        }
 
-        public NPCZombie() { }
+            _minDamage = _zombieMinDmg;
+            _maxDamage = _zombieMaxDmg;
+            _expDrop = _zombieExp;
+        }
+        
+
 
 
     }

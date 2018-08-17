@@ -30,5 +30,13 @@ namespace RPG
             Frm_GameMenu gameMenu = new Frm_GameMenu();
             gameMenu.Show();
         }
+
+        private void Btn_Credits_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Developed by, Fredrik Rönnehag"
+                + Environment.NewLine +
+                "2018. Stockholm, Sweden");
+
+        }
     }
 }

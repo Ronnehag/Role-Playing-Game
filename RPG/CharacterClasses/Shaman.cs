@@ -16,6 +16,9 @@ namespace RPG.CharacterClasses
         private int _baseWisdom = 10;
         private int _baseHealth = 20;
 
+        private int _minDmg = 2;
+        private int _maxDmg = 6;
+
         // Base Constructor
         public Shaman()
         {
@@ -24,6 +27,9 @@ namespace RPG.CharacterClasses
             Dexterity = _baseDexterity;
             Wisdom = _baseWisdom;
             Health = _baseHealth;
+
+            _minDamage = _minDmg;
+            _maxDamage = _maxDmg;
         }
 
         // Constructor
@@ -34,6 +40,9 @@ namespace RPG.CharacterClasses
             Dexterity = _baseDexterity;
             Wisdom = _baseWisdom;
             Health = _baseHealth;
+
+            _minDamage = _minDmg;
+            _maxDamage = _maxDmg;
         }
 
     }

@@ -9,6 +9,11 @@ namespace RPG.CharacterClasses
 {
     public class NPCBase : IEntity
     {
+        protected Random rand = new Random();
+        protected int _minDamage;
+        protected int _maxDamage;
+        protected int _expDrop;
+
         #region Properties
         public string Name { get; set; }
         public int Strength { get; set; }
@@ -32,8 +37,8 @@ namespace RPG.CharacterClasses
 
         public NPCBase GetNewEnemy()
         {
-         NPCBase[] _npcs = new NPCBase[]
-        { new NPCZombie("Zombie") };
+         NPCBase[] _npcs = new NPCBase[]{
+             new NPCZombie("Zombie") };
 
         Random rand = new Random();
             int next = rand.Next(0, _npcs.Length);
@@ -47,26 +52,37 @@ namespace RPG.CharacterClasses
 
         #endregion
 
-
         #region Combat Methods
         public bool IsDead() => Health is 0;
 
-        public int Attack(int minDamage, int maxDamage)
+        public int Attack()
         {
             if (!IsDead())
             {
-                Random rand = new Random();
-                return rand.Next(minDamage, maxDamage);
+                return rand.Next(_minDamage, _maxDamage);
             }
             return 0;
         }
 
-        public void DecreaseHealth(int damage)
+        public int DecreaseHealth(int damage)
         {
             Health -= damage;
-            Health = Math.Max(0, Health);
-            // Sets health to 0 if it goes below.
+            Health = Math.Max(0, Health); // Sets health to 0 if it goes below.
+
+            if (IsDead())
+            {
+                return _expDrop; // Drop exp if dead
+
+            }
+
+            else return 0;
+            
         }
+
+
+
+        // Add method, NPC is defeated.
+        // Give experience?
 
 
         #endregion

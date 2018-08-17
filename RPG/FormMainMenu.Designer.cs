@@ -41,9 +41,9 @@
             this.Lbl_GameTitle.Location = new System.Drawing.Point(6, 9);
             this.Lbl_GameTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Lbl_GameTitle.Name = "Lbl_GameTitle";
-            this.Lbl_GameTitle.Size = new System.Drawing.Size(457, 33);
+            this.Lbl_GameTitle.Size = new System.Drawing.Size(355, 33);
             this.Lbl_GameTitle.TabIndex = 0;
-            this.Lbl_GameTitle.Text = "RPG Game Title Placeholder\r\n";
+            this.Lbl_GameTitle.Text = "Dungeon Fighter v1.0";
             // 
             // Btn_CreateChar
             // 
@@ -70,19 +70,20 @@
             // Btn_Credits
             // 
             this.Btn_Credits.Font = new System.Drawing.Font("MS Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Credits.Location = new System.Drawing.Point(798, 12);
+            this.Btn_Credits.Location = new System.Drawing.Point(683, 9);
             this.Btn_Credits.Name = "Btn_Credits";
             this.Btn_Credits.Size = new System.Drawing.Size(201, 42);
             this.Btn_Credits.TabIndex = 5;
             this.Btn_Credits.Text = "Credits";
             this.Btn_Credits.UseVisualStyleBackColor = true;
+            this.Btn_Credits.Click += new System.EventHandler(this.Btn_Credits_Click);
             // 
             // Frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RPG.Properties.Resources.orcs_debate_by_turnermohan_d8jo68t;
-            this.ClientSize = new System.Drawing.Size(1011, 706);
+            this.ClientSize = new System.Drawing.Size(896, 543);
             this.Controls.Add(this.Btn_Credits);
             this.Controls.Add(this.Btn_LoadGame);
             this.Controls.Add(this.Btn_CreateChar);

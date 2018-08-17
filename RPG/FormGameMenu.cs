@@ -25,13 +25,22 @@ namespace RPG
         private void Frm_GameMenu_Load(object sender, EventArgs e)
         {
             _player = FileManager.LoadGame();
-            Lbl_ShowName.Text = _player.Name;
-            Lbl_ShowGender.Text = _player.Gender.ToString();
-            Lbl_ShowClass.Text = _player.CharacterClass.ToString();
-            Lbl_ShowStrength.Text = _player.Strength.ToString();
-            Lbl_ShowDexterity.Text = _player.Dexterity.ToString();
-            Lbl_ShowWisdom.Text = _player.Wisdom.ToString();
-            Lbl_ShowHealth.Text = _player.Health.ToString();
+            if (_player != null)
+            {
+                Lbl_ShowName.Text = _player.Name;
+                Lbl_ShowGender.Text = _player.Gender.ToString();
+                Lbl_ShowClass.Text = _player.CharacterClass.ToString();
+                Lbl_ShowStrength.Text = _player.Strength.ToString();
+                Lbl_ShowDexterity.Text = _player.Dexterity.ToString();
+                Lbl_ShowWisdom.Text = _player.Wisdom.ToString();
+                Lbl_ShowHealth.Text = _player.Health.ToString();
+            }
+            else
+            {
+                MessageBox.Show("No character file to load, start a new game.");
+                Close();
+            }
+
 
         }
 
@@ -57,9 +66,25 @@ namespace RPG
             // - Make NPC.Attack method generate the numbers within its derived classes.
             // - Add Method here to refresh the player/enemy HP after each click of btn Attack.
             // - Add astring, showing enemy attacks + damage number in textbox.
-            int damage = _npc.Attack(1, 3);
-            _player.Health -= damage;
+            int npcDamage = _npc.Attack();
+            int playerDamage = _player.Attack();
+            _npc.DecreaseHealth(playerDamage);
+            _player.DecreaseHealth(npcDamage);
+
+            if(!_player.IsDead() || !_npc.IsDead())
+            {
+                // Continue here with LevelUp method
+            }
+
+           
+
+            // Add story here, player swung weapon hit for x dmg.
+            // NPC attacked back for x dmg.
+
             Lbl_ShowHealth.Text = _player.Health.ToString();
+            Tb_Dungeon.AppendText(Environment.NewLine+ "Enemy: " + _npc.Name + Environment.NewLine +
+            "Current health: " + _npc.Health);
+
         }
     }
 }
