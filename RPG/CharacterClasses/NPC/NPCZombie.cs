@@ -31,10 +31,11 @@ namespace RPG.CharacterClasses
             Dexterity = _defaultDexterity;
             Wisdom = _defaultWisdom;
             Health = _defaultHealth;
+            ExperienceDrop = _zombieExp;
 
             _minDamage = _zombieMinDmg;
             _maxDamage = _zombieMaxDmg;
-            _expDrop = _zombieExp;
+            
         }
         
 

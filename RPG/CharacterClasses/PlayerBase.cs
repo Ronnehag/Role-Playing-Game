@@ -29,9 +29,8 @@ namespace RPG.CharacterClasses
         // Experience needed for lvl 2.
         // Method for level upp will increase this value, so level 3 needs more experience.
         // Set exp dropped from monsters in NPCBase and Subclasses.
-        private int _experienceNeeded = 100;
-        private int _currentExp = 0;
-
+        public int experienceNeeded = 100;
+        protected int _levelDefault = 1;
         protected int _minDamage;
         protected int _maxDamage;
         #endregion
@@ -41,6 +40,8 @@ namespace RPG.CharacterClasses
         public int Strength { get; set; }
         public int Dexterity { get; set; }
         public int Wisdom { get; set; }
+        public int Experience { get; set; } = 0;
+        public int Level { get; set; }
         public int Health { get; set; } // -Add: make setter default to 0 if value goes negative
         public EntityGender Gender { get; set; }
         public EntityClass CharacterClass { get; set; }
@@ -58,14 +59,21 @@ namespace RPG.CharacterClasses
 
         #region Combat System
         public bool IsDead() => Health is 0;
+        public bool LevelUp() => Experience >= experienceNeeded;
 
-        public void LevelUp(int points)
+        public int ExperienceGain(int points)
         {
-            _currentExp += points;
-            if(_currentExp >= _experienceNeeded)
+            Experience += points;
+            if(LevelUp())
             {
                 // Level up here
+                Strength += 2;
+                Wisdom += 2;
+                Dexterity += 2;
+                Health += 5;
+                Level += 1;
             }
+            return Experience += points;
         }
 
         public int Attack()

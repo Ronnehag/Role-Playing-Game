@@ -27,6 +27,7 @@ namespace RPG.CharacterClasses
             Dexterity = _baseDexterity;
             Wisdom = _baseWisdom;
             Health = _baseHealth;
+            Level = _levelDefault;
 
             _minDamage = _minDmg;
             _maxDamage = _maxDmg;

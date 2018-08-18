@@ -20,6 +20,7 @@ namespace RPG.CharacterClasses
         public int Dexterity { get; set; }
         public int Wisdom { get; set; }
         public int Health { get; set; }
+        public int ExperienceDrop { get; set; }
         public EntityGender Gender { get; set; } = EntityGender.Unknown;
         public EntityClass CharacterClass { get; set; } = EntityClass.Unknown;
         #endregion
@@ -37,10 +38,10 @@ namespace RPG.CharacterClasses
 
         public NPCBase GetNewEnemy()
         {
-         NPCBase[] _npcs = new NPCBase[]{
-             new NPCZombie("Zombie") };
+            NPCBase[] _npcs = new NPCBase[]{
+            new NPCZombie("Zombie") };
 
-        Random rand = new Random();
+            Random rand = new Random();
             int next = rand.Next(0, _npcs.Length);
 
             if (_npcs != null)
@@ -71,7 +72,7 @@ namespace RPG.CharacterClasses
 
             if (IsDead())
             {
-                return _expDrop; // Drop exp if dead
+                return ExperienceDrop; // Drop exp if dead
 
             }
 
