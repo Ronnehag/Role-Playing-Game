@@ -61,7 +61,7 @@ namespace RPG.CharacterClasses
         public bool IsDead() => Health is 0;
         public bool LevelUp() => Experience >= experienceNeeded;
 
-        public int ExperienceGain(int points)
+        public void ExperienceGain(int points)
         {
             Experience += points;
             if(LevelUp())
@@ -73,7 +73,7 @@ namespace RPG.CharacterClasses
                 Health += 5;
                 Level += 1;
             }
-            return Experience += points;
+            
         }
 
         public int Attack()

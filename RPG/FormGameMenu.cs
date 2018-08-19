@@ -91,11 +91,11 @@ namespace RPG
                         "You are rewarded with " + _npc.ExperienceDrop + " experience.");
                     _player.ExperienceGain(_npc.ExperienceDrop);
                     Pb_Experience.Value += _npc.ExperienceDrop;
+
                     if(Pb_Experience.Value == Pb_Experience.Maximum)
                     {
-                        _player.LevelUp();
                         Pb_Experience.Value = 0;
-                        RefreshMenu(); // Nåt blir fel här, hoppar lvl 1 till lvl 3.
+                        RefreshMenu();
                     }
 
                 }
