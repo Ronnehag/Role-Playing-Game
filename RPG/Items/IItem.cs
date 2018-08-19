@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPG.CharacterClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace RPG.Items
 {
-    interface IItem
+    public interface IItem
     {
-        // Properties and Methods goes here
+       string Name { get; set; }
+       string Type { get; set; }
+       int MinDamage { get; set; }
+       int MaxDamage { get; set; }
+       int Defense { get; set; }
+
+        void Sell();
+        void Use(PlayerBase player);
+        
     }
 }

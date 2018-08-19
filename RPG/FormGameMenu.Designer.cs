@@ -54,6 +54,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Btn_Inventory = new System.Windows.Forms.Button();
             this.Lbl_Experience = new System.Windows.Forms.Label();
+            this.Btn_Save = new System.Windows.Forms.Button();
             this.Gbox_CharStats.SuspendLayout();
             this.Gbox_Dungeon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -299,7 +300,7 @@
             // 
             // Btn_Inventory
             // 
-            this.Btn_Inventory.Location = new System.Drawing.Point(570, 483);
+            this.Btn_Inventory.Location = new System.Drawing.Point(503, 504);
             this.Btn_Inventory.Name = "Btn_Inventory";
             this.Btn_Inventory.Size = new System.Drawing.Size(113, 52);
             this.Btn_Inventory.TabIndex = 7;
@@ -315,11 +316,22 @@
             this.Lbl_Experience.TabIndex = 14;
             this.Lbl_Experience.Text = "Exp:";
             // 
+            // Btn_Save
+            // 
+            this.Btn_Save.Location = new System.Drawing.Point(505, 562);
+            this.Btn_Save.Name = "Btn_Save";
+            this.Btn_Save.Size = new System.Drawing.Size(113, 52);
+            this.Btn_Save.TabIndex = 8;
+            this.Btn_Save.Text = "Save";
+            this.Btn_Save.UseVisualStyleBackColor = true;
+            this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
+            // 
             // Frm_GameMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 629);
+            this.Controls.Add(this.Btn_Save);
             this.Controls.Add(this.Btn_Inventory);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Gbox_Dungeon);
@@ -363,5 +375,6 @@
         private System.Windows.Forms.Label Lbl_ShowLevel;
         private System.Windows.Forms.Label Lbl_Level;
         private System.Windows.Forms.Label Lbl_Experience;
+        private System.Windows.Forms.Button Btn_Save;
     }
 }

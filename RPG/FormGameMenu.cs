@@ -28,15 +28,8 @@ namespace RPG
             _player = FileManager.LoadGame();
             if (_player != null)
             {
-                Lbl_ShowName.Text = _player.Name;
-                Lbl_ShowGender.Text = _player.Gender.ToString();
-                Lbl_ShowClass.Text = _player.CharacterClass.ToString();
-                Lbl_ShowStrength.Text = _player.Strength.ToString();
-                Lbl_ShowDexterity.Text = _player.Dexterity.ToString();
-                Lbl_ShowWisdom.Text = _player.Wisdom.ToString();
-                Lbl_ShowHealth.Text = _player.Health.ToString();
-                Lbl_ShowLevel.Text = _player.Level.ToString();
-
+                RefreshMenu();
+                // This sets the experience bar to current exp
                 Pb_Experience.Minimum = _player.Experience;
                 Pb_Experience.Maximum = _player.experienceNeeded;
             }
@@ -45,13 +38,11 @@ namespace RPG
                 MessageBox.Show("No character file to load, start a new game.");
                 Close();
             }
-
-
         }
 
         private void Btn_NewEnemy_Click(object sender, EventArgs e)
         {
-            if(Tb_Dungeon.Text.Contains(" "))
+            if(!_npc.IsDead())
             {
                 MessageBox.Show("You can't engage a new enemy until you defeated your current enemy!");
             }
@@ -129,6 +120,11 @@ namespace RPG
             Pb_Experience.Minimum = _player.Experience;
             Pb_Experience.Maximum = _player.experienceNeeded;
 
+        }
+
+        private void Btn_Save_Click(object sender, EventArgs e)
+        {
+            FileManager.StoreCharacter(_player);
         }
     }
 }
