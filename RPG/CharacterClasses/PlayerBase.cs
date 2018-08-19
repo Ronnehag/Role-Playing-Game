@@ -117,12 +117,13 @@ namespace RPG.CharacterClasses
         #endregion
 
         #region Inventory
-        public void ShowInventory()
+        public string ShowInventory()
         {
             foreach(var item in _Inventory)
             {
-                
+                return item.Name;
             }
+            return null;
         }
 
 
@@ -130,12 +131,12 @@ namespace RPG.CharacterClasses
         {
             string msg = "";
 
-            for (int i = 0; i < _Inventory.Length-1; i++)
+            for (int i = 0; i < _Inventory.Length; i++)
             {
                 if (_Inventory[i] != null)
                 {
                     _Inventory[i] = loot;
-                    msg = loot + " is added to your inventory";
+                    msg = loot.Name + " is added to your inventory";
                 }
                 else
                 {
