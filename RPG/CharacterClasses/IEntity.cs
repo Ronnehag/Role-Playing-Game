@@ -15,7 +15,7 @@ namespace RPG.CharacterClasses
         int Strength { get; set; }
         int Dexterity { get; set; }
         int Wisdom { get; set; }
-        int Health { get; set; }
+        int Health { get; set;  }
         EntityGender Gender { get; set; }
         EntityClass CharacterClass { get; set; }
 

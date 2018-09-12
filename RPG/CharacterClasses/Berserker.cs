@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using RPG.Items;
 
 namespace RPG.CharacterClasses
 {
@@ -16,6 +17,7 @@ namespace RPG.CharacterClasses
         private int _baseWisdom = 5;
         private int _baseHealth = 25;
 
+
         // Base Constructor, default stats
         public Berserker()
         {
@@ -27,7 +29,7 @@ namespace RPG.CharacterClasses
         }
 
         // Constructor for character creation
-        public Berserker(string name, EntityGender gender) : base (name, gender)
+        public Berserker(string name, EntityGender gender, Item[] inventory) : base (name, gender, inventory)
         {
             CharacterClass = EntityClass.Berserker;
             Strength = _baseStrength;

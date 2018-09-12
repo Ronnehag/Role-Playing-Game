@@ -15,8 +15,8 @@ namespace RPG
 {
     public partial class Frm_GameMenu : Form
     {
-        private static PlayerBase _player = new PlayerBase();
-        private static NPCBase _npc = new NPCBase();
+        private PlayerBase _player = FileManager.LoadGame();
+        private NPCBase _npc = new NPCBase();
 
         public Frm_GameMenu()
         {
@@ -25,7 +25,7 @@ namespace RPG
 
         private void Frm_GameMenu_Load(object sender, EventArgs e)
         {
-            _player = FileManager.LoadGame();
+           // _player = FileManager.LoadGame();
             if (_player != null)
             {
                 RefreshMenu();
@@ -125,6 +125,12 @@ namespace RPG
         private void Btn_Save_Click(object sender, EventArgs e)
         {
             FileManager.StoreCharacter(_player);
+        }
+
+        private void Btn_Inventory_Click(object sender, EventArgs e)
+        {
+            Frm_Inventory FormInventory = new Frm_Inventory(_player);
+            FormInventory.Show();
         }
     }
 }

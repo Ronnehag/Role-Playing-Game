@@ -1,4 +1,5 @@
-﻿using RPG.Items;
+﻿using RPG.Data;
+using RPG.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace RPG.CharacterClasses
 { 
     [XmlInclude(typeof(Berserker))]
     [XmlInclude(typeof(Shaman))]
+    [XmlInclude(typeof(Item))]
+    [XmlInclude(typeof(HealthPotion))]
     public class PlayerBase : IEntity
     {
         public static Type[] Types = new Type[] 
@@ -20,17 +23,17 @@ namespace RPG.CharacterClasses
         protected Random rand = new Random();
 
         #region Fields
-        protected int _strengthFactor;
-        protected int _dexterityFactor;
-        protected int _wisdomFactor;
-        protected int _healthFactor;
-        protected int _maxHealth;
+        protected int strengthFactor;
+        protected int dexterityFactor;
+        protected int wisdomFactor;
+        protected int healthFactor;
+        protected int _health;
+        public int maxHealth;
 
         // Experience needed for lvl 2.
         // Method for level upp will increase this value, so level 3 needs more experience.
         // Set exp dropped from monsters in NPCBase and Subclasses.
         public int experienceNeeded = 100;
-        protected IItem[] _Inventory;
         protected int _levelDefault = 1;
         protected int _minDamage;
         protected int _maxDamage;
@@ -48,17 +51,16 @@ namespace RPG.CharacterClasses
         {
             get
             {
-                return Health;
+                return _health;
             }
             set
             {
-                Health = value;
-                if(Health > _maxHealth)
-                {
-                    Health = _maxHealth;
-                }
+                if (value < 0) _health = 0;
+                else _health = value;
+                
             }
         }
+        public Item[] Inventory { get; set; }
         public EntityGender Gender { get; set; }
         public EntityClass CharacterClass { get; set; }
    
@@ -67,12 +69,12 @@ namespace RPG.CharacterClasses
         #region Constructors
         public PlayerBase() { }
 
-        public PlayerBase(string name, EntityGender gender)
+        public PlayerBase(string name, EntityGender gender, Item[] inventory)
         {
             Name = name;
             Gender = gender;
             Level = _levelDefault;
-            _Inventory = new IItem[_defaultSlots];
+            Inventory = inventory;
         }
         #endregion
 
@@ -85,11 +87,12 @@ namespace RPG.CharacterClasses
             Experience += points;
             if(LevelUp())
             {
-                // Level up here
+                // Level up here, placeholder variables, add stats yourself?
                 Strength += 2;
                 Wisdom += 2;
                 Dexterity += 2;
                 Health += 5;
+                maxHealth = Health;
                 Level += 1;
             }
             
@@ -102,7 +105,7 @@ namespace RPG.CharacterClasses
 
             if (!IsDead())
             {
-                return rand.Next(_minDamage, _maxDamage);
+                return rand.Next(_minDamage, _maxDamage+1);
             }
             return 0;
         }
@@ -117,25 +120,24 @@ namespace RPG.CharacterClasses
         #endregion
 
         #region Inventory
-        public string ShowInventory()
-        {
-            foreach(var item in _Inventory)
-            {
-                return item.Name;
-            }
-            return null;
-        }
+        //public string[] ShowInventory()
+        //{
 
 
-        public string AddItem(IItem loot)
+
+            
+        //}
+
+
+        public string AddItem(Item loot)
         {
             string msg = "";
 
-            for (int i = 0; i < _Inventory.Length; i++)
+            for (int i = 0; i < Inventory.Length; i++)
             {
-                if (_Inventory[i] != null)
+                if (Inventory[i] != null)
                 {
-                    _Inventory[i] = loot;
+                    Inventory[i] = loot;
                     msg = loot.Name + " is added to your inventory";
                 }
                 else

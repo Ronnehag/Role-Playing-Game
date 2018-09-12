@@ -12,6 +12,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 using RPG.Data;
+using RPG.Items;
 
 namespace RPG
 {
@@ -33,13 +34,14 @@ namespace RPG
             if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(selectedClass))
             {
                 PlayerBase hero = null;
+                Item[] startingItems = new Item[] { new HealthPotion(), new HealthPotion(), new HealthPotion() };
                 switch (selectedClass)
                 {
                     case "Shaman":
-                        hero = new Shaman(name, gender);
+                        hero = new Shaman(name, gender, startingItems);
                         break;
                     case "Berserker":
-                        hero = new Berserker(name, gender);
+                        hero = new Berserker(name, gender, startingItems);
                         break;
                     case "Rogue":
                         //hero = new Rogue(name, gender);
@@ -88,17 +90,19 @@ namespace RPG
 
         public string ShowStats(string selected)
         {
-            PlayerBase selectedEntity = new PlayerBase();
+            
             var entitySelect = ClassSelect(selected);
             string returnStats = "";
 
-            PlayerBase[] entities = new PlayerBase[2] 
+            PlayerBase[] entities = new PlayerBase[] 
             {
-                new Shaman(),
-                new Berserker()
+                new Shaman()
+
                 // Add new heroes here to show their stats
+                
             };
 
+            PlayerBase selectedEntity = new PlayerBase();
             foreach (var entity in entities)
             {
                 if (entitySelect == entity.CharacterClass)

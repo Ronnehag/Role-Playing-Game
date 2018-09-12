@@ -1,4 +1,5 @@
 ﻿using RPG.CharacterClasses;
+using RPG.Items;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -4,11 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace RPG.Items
 {
-    public class HealthPotion : IItem
+    [XmlRoot(Namespace = "PlayerBase")]
+    public class HealthPotion : Item
     {
+        private string _type = "Potion";
+        private int _minDamage = 0;
+        private int _maxDamage = 0;
+        private int _defense = 0;
+
         public string Name { get; set; } = "Health Potion";
         public string Type { get; set; } = "Potion";
         public int MinDamage { get; set; } = 0;
@@ -28,6 +35,10 @@ namespace RPG.Items
         public void Use(PlayerBase player)
         {
             player.Health += Healing;
+            if(player.Health > player.maxHealth)
+            {
+                player.Health = player.maxHealth;
+            }
         }
 
         public void Sell()

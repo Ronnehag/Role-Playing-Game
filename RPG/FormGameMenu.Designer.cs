@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_GameMenu));
             this.Gbox_CharStats = new System.Windows.Forms.GroupBox();
+            this.Lbl_Experience = new System.Windows.Forms.Label();
             this.Lbl_Level = new System.Windows.Forms.Label();
             this.Lbl_ShowLevel = new System.Windows.Forms.Label();
             this.Pb_Experience = new System.Windows.Forms.ProgressBar();
@@ -53,7 +54,6 @@
             this.Btn_NewEnemy = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Btn_Inventory = new System.Windows.Forms.Button();
-            this.Lbl_Experience = new System.Windows.Forms.Label();
             this.Btn_Save = new System.Windows.Forms.Button();
             this.Gbox_CharStats.SuspendLayout();
             this.Gbox_Dungeon.SuspendLayout();
@@ -85,12 +85,23 @@
             this.Gbox_CharStats.TabStop = false;
             this.Gbox_CharStats.Text = "Character Stats:";
             // 
+            // Lbl_Experience
+            // 
+            this.Lbl_Experience.AutoSize = true;
+            this.Lbl_Experience.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Experience.Location = new System.Drawing.Point(23, 100);
+            this.Lbl_Experience.Name = "Lbl_Experience";
+            this.Lbl_Experience.Size = new System.Drawing.Size(44, 20);
+            this.Lbl_Experience.TabIndex = 14;
+            this.Lbl_Experience.Text = "Exp:";
+            // 
             // Lbl_Level
             // 
             this.Lbl_Level.AutoSize = true;
+            this.Lbl_Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Level.Location = new System.Drawing.Point(389, 100);
             this.Lbl_Level.Name = "Lbl_Level";
-            this.Lbl_Level.Size = new System.Drawing.Size(42, 20);
+            this.Lbl_Level.Size = new System.Drawing.Size(46, 20);
             this.Lbl_Level.TabIndex = 13;
             this.Lbl_Level.Text = "LVL:";
             // 
@@ -306,19 +317,11 @@
             this.Btn_Inventory.TabIndex = 7;
             this.Btn_Inventory.Text = "Inventory";
             this.Btn_Inventory.UseVisualStyleBackColor = true;
-            // 
-            // Lbl_Experience
-            // 
-            this.Lbl_Experience.AutoSize = true;
-            this.Lbl_Experience.Location = new System.Drawing.Point(23, 100);
-            this.Lbl_Experience.Name = "Lbl_Experience";
-            this.Lbl_Experience.Size = new System.Drawing.Size(40, 20);
-            this.Lbl_Experience.TabIndex = 14;
-            this.Lbl_Experience.Text = "Exp:";
+            this.Btn_Inventory.Click += new System.EventHandler(this.Btn_Inventory_Click);
             // 
             // Btn_Save
             // 
-            this.Btn_Save.Location = new System.Drawing.Point(505, 562);
+            this.Btn_Save.Location = new System.Drawing.Point(503, 562);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(113, 52);
             this.Btn_Save.TabIndex = 8;
