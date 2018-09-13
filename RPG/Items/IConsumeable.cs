@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace RPG.Items
 {
-    public interface IItem
+    interface IConsumeable
     {
-       string Name { get; set; }
-       string Itemtype { get; set; }
+        string Name { get; set; }
+        string Itemtype { get; set; }
+        int Consumeeffect { get; set; }
 
-        void Sell();
         void Use(PlayerBase player);
-        
+        void Sell();
+    
     }
 }

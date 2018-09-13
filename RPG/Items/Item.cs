@@ -12,10 +12,11 @@ namespace RPG.Items
     public class Item : IItem
     {
         public string Name { get; set; }
-        public string Type { get; set; }
-        public int MinDamage { get; set; }
-        public int MaxDamage { get; set; }
-        public int Defense { get; set; }
+        public string Itemtype { get; set; }
+        public int Consumeeffect { get; set; }
+        //public int MinDamage { get; set; }
+        //public int MaxDamage { get; set; }
+        //public int Defense { get; set; }
 
         public Item()
         {
@@ -24,6 +25,6 @@ namespace RPG.Items
 
 
         public void Sell() { }
-        public void Use(PlayerBase player) { }
+        public virtual void Use(PlayerBase player) { }
     }
 }

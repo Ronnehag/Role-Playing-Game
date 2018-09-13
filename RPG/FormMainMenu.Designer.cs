@@ -82,7 +82,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::RPG.Properties.Resources.orcs_debate_by_turnermohan_d8jo68t;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(896, 543);
             this.Controls.Add(this.Btn_Credits);
             this.Controls.Add(this.Btn_LoadGame);

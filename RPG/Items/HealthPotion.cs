@@ -9,31 +9,25 @@ using System.Xml.Serialization;
 namespace RPG.Items
 {
     [XmlRoot(Namespace = "PlayerBase")]
-    public class HealthPotion : Item
+    public class HealthPotion : Item, IConsumeable
     {
         private string _name = "Health Potion";
         private string _type = "Potion";
-        private int _minDamage = 0;
-        private int _maxDamage = 0;
-        private int _defense = 0;
-
-
-        public int Healing { get; set; }
-
         private int _healthValue = 15;
+
+        //private int _goldValue;
 
         // Creates new potion
         public HealthPotion()
         {
             Name = _name;
-            Type = _type;
-
-            Healing = _healthValue;
+            Itemtype = _type;
+            Consumeeffect = _healthValue;
         }
 
-        public void Use(PlayerBase player)
+        public override void Use(PlayerBase player)
         {
-            player.Health += Healing;
+            player.Health += Consumeeffect;
             if(player.Health > player.maxHealth)
             {
                 player.Health = player.maxHealth;
