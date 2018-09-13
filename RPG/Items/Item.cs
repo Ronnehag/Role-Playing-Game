@@ -17,6 +17,12 @@ namespace RPG.Items
         public int MaxDamage { get; set; }
         public int Defense { get; set; }
 
+        public Item()
+        {
+
+        }
+
+
         public void Sell() { }
         public void Use(PlayerBase player) { }
     }

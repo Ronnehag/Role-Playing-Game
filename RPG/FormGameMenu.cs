@@ -25,7 +25,6 @@ namespace RPG
 
         private void Frm_GameMenu_Load(object sender, EventArgs e)
         {
-           // _player = FileManager.LoadGame();
             if (_player != null)
             {
                 RefreshMenu();
@@ -53,6 +52,7 @@ namespace RPG
             }
         }
 
+        // Placeholderför test av funktion, Story kan genereras från annan klass sedan.
         public void ShowNewEnemy()
         {
             _npc = _npc.GetNewEnemy();
@@ -106,6 +106,7 @@ namespace RPG
 
         }
 
+        // Uppdaterar UI med nya värden efter en fight/level up
         public void RefreshMenu()
         {
             Lbl_ShowHealth.Text = _player.Health.ToString();

@@ -11,16 +11,12 @@ namespace RPG.Items
     [XmlRoot(Namespace = "PlayerBase")]
     public class HealthPotion : Item
     {
+        private string _name = "Health Potion";
         private string _type = "Potion";
         private int _minDamage = 0;
         private int _maxDamage = 0;
         private int _defense = 0;
 
-        public string Name { get; set; } = "Health Potion";
-        public string Type { get; set; } = "Potion";
-        public int MinDamage { get; set; } = 0;
-        public int MaxDamage { get; set; } = 0;
-        public int Defense { get; set; } = 0;
 
         public int Healing { get; set; }
 
@@ -29,6 +25,9 @@ namespace RPG.Items
         // Creates new potion
         public HealthPotion()
         {
+            Name = _name;
+            Type = _type;
+
             Healing = _healthValue;
         }
 

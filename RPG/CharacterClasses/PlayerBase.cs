@@ -56,6 +56,7 @@ namespace RPG.CharacterClasses
             set
             {
                 if (value < 0) _health = 0;
+                if (value > maxHealth) _health = maxHealth;
                 else _health = value;
                 
             }
@@ -87,12 +88,12 @@ namespace RPG.CharacterClasses
             Experience += points;
             if(LevelUp())
             {
-                // Level up here, placeholder variables, add stats yourself?
+                // Level up here, placeholder variables.
                 Strength += 2;
                 Wisdom += 2;
                 Dexterity += 2;
-                Health += 5;
-                maxHealth = Health;
+                maxHealth = Health + 5;
+                Health = maxHealth;
                 Level += 1;
             }
             
@@ -113,23 +114,12 @@ namespace RPG.CharacterClasses
         public void DecreaseHealth(int damage)
         {
             Health -= damage;
-            Health = Math.Max(0, Health);
-            // Sets health to 0 if it goes below.
-
         }
         #endregion
 
         #region Inventory
-        //public string[] ShowInventory()
-        //{
 
-
-
-            
-        //}
-
-
-        public string AddItem(Item loot)
+        public string AddItem(Item lootedItem)
         {
             string msg = "";
 
@@ -137,8 +127,8 @@ namespace RPG.CharacterClasses
             {
                 if (Inventory[i] != null)
                 {
-                    Inventory[i] = loot;
-                    msg = loot.Name + " is added to your inventory";
+                    Inventory[i] = lootedItem;
+                    msg = lootedItem.Name + " is added to your inventory";
                 }
                 else
                 {

@@ -16,9 +16,7 @@ namespace RPG.CharacterClasses
         private int _baseDexterity = 5;
         private int _baseWisdom = 10;
         private int _baseHealth = 20;
-
         private Item[] _inventory = new Item[] { new HealthPotion(), new HealthPotion(), new HealthPotion() };
-
         private int _minDmg = 2;
         private int _maxDmg = 6;
         #endregion
@@ -32,9 +30,9 @@ namespace RPG.CharacterClasses
             Wisdom = _baseWisdom;
             maxHealth = _baseHealth;
             Health = _baseHealth;
-
             _minDamage = _minDmg;
             _maxDamage = _maxDmg;
+            Inventory = _inventory;
         }
 
         public Shaman(string name, EntityGender gender, Item[] inventory) : base(name, gender, inventory)
@@ -45,11 +43,7 @@ namespace RPG.CharacterClasses
             Wisdom = _baseWisdom;
             Health = _baseHealth;
             maxHealth = _baseHealth;
-
             inventory = _inventory;
-
-
-
             _minDamage = _minDmg;
             _maxDamage = _maxDmg;
         }
